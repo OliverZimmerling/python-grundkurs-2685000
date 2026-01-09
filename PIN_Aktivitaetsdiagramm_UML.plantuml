@@ -1,0 +1,44 @@
+@startuml PIN_Abfrage_Aktivitaetsdiagramm
+!theme plain
+skinparam defaultTextAlignment center
+skinparam activityDiamondBorderColor black
+skinparam activityDiamondBackgroundColor white
+skinparam ArrowColor black
+
+title Aktivitätsdiagramm: PIN-Abfrage mit fußgesteuerter Schleife (do-while)
+
+start
+note right: Startknoten
+
+:Eingabe:
+PIN festlegen;
+
+:PIN speichern;
+
+partition "do-while-Schleife" {
+
+    repeat
+    note left: Verbindungsknoten
+
+    :Eingabe:
+    PIN abfragen;
+
+    note right: Entscheidungsknoten
+    if (eingabe != pin?) then (wahr)
+        :Drucke:
+        "Falscher PIN!";
+    else (falsch)
+    endif
+
+    repeat while (eingabe != pin?) is (wahr)
+    ->falsch;
+}
+
+:Drucke:
+"Richtiger PIN!
+Zugang gewährt";
+
+stop
+note right: Endknoten
+
+@enduml
