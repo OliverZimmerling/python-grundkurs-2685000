@@ -1,0 +1,328 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║            OBJEKTORIENTIERTE PROGRAMMIERUNG (OOP) IN JAVA                  ║
+║                        UML-KLASSENDIAGRAMME                                ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          KLASSENDIAGRAMM
+═══════════════════════════════════════════════════════════════════════════════
+
+    ┌─────────────────────────────────────────────────┐
+    │                  Person                         │
+    ├─────────────────────────────────────────────────┤
+    │  - name : String                                │
+    │  - alter : int                                  │
+    │  - adresse : String                             │
+    ├─────────────────────────────────────────────────┤
+    │  + Person()                                     │
+    │  + Person(name: String, alter: int)             │
+    │  + Person(name: String, alter: int,             │
+    │            adresse: String)                     │
+    │                                                 │
+    │  + getName() : String                           │
+    │  + getAlter() : int                             │
+    │  + getAdresse() : String                        │
+    │                                                 │
+    │  + setName(name: String) : void                 │
+    │  + setAlter(alter: int) : void                  │
+    │  + setAdresse(adresse: String) : void           │
+    │                                                 │
+    │  + begruessung() : void                         │
+    │  + geburtstag() : void                          │
+    │  + zeigeInfo() : void                           │
+    │  + toString() : String                          │
+    └─────────────────────────────────────────────────┘
+                            △
+                            │
+                            │ extends (Vererbung)
+                            │
+                            │
+    ┌─────────────────────────────────────────────────┐
+    │                  Student                        │
+    ├─────────────────────────────────────────────────┤
+    │  - matrikelnummer : String                      │
+    │  - studiengang : String                         │
+    │  - durchschnittsnote : double                   │
+    ├─────────────────────────────────────────────────┤
+    │  + Student()                                    │
+    │  + Student(name: String, alter: int,            │
+    │            matrikelnummer: String)              │
+    │  + Student(name: String, alter: int,            │
+    │            adresse: String,                     │
+    │            matrikelnummer: String,              │
+    │            studiengang: String)                 │
+    │                                                 │
+    │  + getMatrikelnummer() : String                 │
+    │  + getStudiengang() : String                    │
+    │  + getDurchschnittsnote() : double              │
+    │  + getSemester() : int                          │
+    │                                                 │
+    │  + setMatrikelnummer(String) : void             │
+    │  + setStudiengang(String) : void                │
+    │  + setDurchschnittsnote(double) : void          │
+    │                                                 │
+    │  + lernen() : void                              │
+    │  + begruessung() : void       [@Override]       │
+    │  + zeigeInfo() : void         [@Override]       │
+    │  + toString() : String        [@Override]       │
+    └─────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                      VERERBUNGSHIERARCHIE
+═══════════════════════════════════════════════════════════════════════════════
+
+                        Person (Basisklasse)
+                            │
+                            │ erbt von (IS-A)
+                            ▼
+                        Student (Abgeleitete Klasse)
+
+
+    Student ERBT alle Attribute und Methoden von Person:
+
+    ┌──────────────────────────────────────────────────────┐
+    │  Student hat:                                        │
+    │  ────────────────────────────────────────────────    │
+    │  Von Person geerbt:                                  │
+    │    • name                                            │
+    │    • alter                                           │
+    │    • adresse                                         │
+    │    • getName(), getAlter(), getAdresse()             │
+    │    • setName(), setAlter(), setAdresse()             │
+    │    • geburtstag()                                    │
+    │                                                      │
+    │  Eigene Attribute:                                   │
+    │    • matrikelnummer                                  │
+    │    • studiengang                                     │
+    │    • durchschnittsnote                               │
+    │                                                      │
+    │  Eigene Methoden:                                    │
+    │    • lernen()                                        │
+    │    • getSemester()                                   │
+    │                                                      │
+    │  Überschriebene Methoden:                            │
+    │    • begruessung()   [@Override]                     │
+    │    • zeigeInfo()     [@Override]                     │
+    │    • toString()      [@Override]                     │
+    └──────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         OBJEKTDIAGRAMM
+═══════════════════════════════════════════════════════════════════════════════
+
+    Instanzen der Klasse Person:
+
+    ┌────────────────────────────┐    ┌────────────────────────────┐
+    │  person2 : Person          │    │  person3 : Person          │
+    ├────────────────────────────┤    ├────────────────────────────┤
+    │  name = "Max Mustermann"   │    │  name = "Anna Schmidt"     │
+    │  alter = 30                │    │  alter = 25                │
+    │  adresse = "Keine Angabe"  │    │  adresse = "Musterstraße   │
+    │                            │    │             123,            │
+    │                            │    │             12345 Berlin"   │
+    └────────────────────────────┘    └────────────────────────────┘
+
+
+    Instanzen der Klasse Student:
+
+    ┌────────────────────────────┐    ┌────────────────────────────┐
+    │  student2 : Student        │    │  student3 : Student        │
+    ├────────────────────────────┤    ├────────────────────────────┤
+    │  name = "Tom Weber"        │    │  name = "Sarah Klein"      │
+    │  alter = 22                │    │  alter = 20                │
+    │  adresse = "Keine Angabe"  │    │  adresse = "Universitäts-  │
+    │  matrikelnummer = "123456" │    │             allee 7,        │
+    │  studiengang = "Informatik"│    │             10115 Berlin"   │
+    │  durchschnittsnote = 1.8   │    │  matrikelnummer = "789012" │
+    │                            │    │  studiengang = "Wirtschafts│
+    │                            │    │                informatik"  │
+    │                            │    │  durchschnittsnote = 2.1   │
+    └────────────────────────────┘    └────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    DIE VIER OOP-GRUNDPRINZIPIEN
+═══════════════════════════════════════════════════════════════════════════════
+
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │  1. KAPSELUNG (Encapsulation)                                          │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │                                                                        │
+  │    private String name;    ← Attribut ist geschützt                   │
+  │                                                                        │
+  │    public String getName() {   ← Zugriff über Getter                  │
+  │        return name;                                                   │
+  │    }                                                                  │
+  │                                                                        │
+  │    public void setName(String name) {   ← Zugriff über Setter        │
+  │        this.name = name;                                              │
+  │    }                                                                  │
+  │                                                                        │
+  │  ✓  Daten sind vor direktem Zugriff geschützt                         │
+  │  ✓  Kontrolle über Wertänderungen (Validierung möglich)               │
+  │  ✓  Interne Implementierung kann geändert werden                      │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │  2. VERERBUNG (Inheritance)                                            │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │                                                                        │
+  │    public class Student extends Person {                              │
+  │        // Student erbt ALLE Eigenschaften von Person                  │
+  │    }                                                                  │
+  │                                                                        │
+  │    IS-A Beziehung:                                                    │
+  │    Ein Student IST eine Person                                        │
+  │                                                                        │
+  │  ✓  Code-Wiederverwendung                                             │
+  │  ✓  Hierarchische Klassenstruktur                                     │
+  │  ✓  Spezialisierung von Klassen                                       │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │  3. POLYMORPHISMUS (Polymorphism)                                      │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │                                                                        │
+  │    Person p = new Student(...);  ← Student ist auch eine Person       │
+  │    p.begruessung();              ← Ruft Student-Version auf!          │
+  │                                                                        │
+  │    @Override                     ← Methodenüberschreibung             │
+  │    public void begruessung() {                                        │
+  │        // Spezielle Begrüßung für Student                             │
+  │    }                                                                  │
+  │                                                                        │
+  │  ✓  Gleicher Methodenname, unterschiedliches Verhalten                │
+  │  ✓  Flexibler Code                                                    │
+  │  ✓  Dynamisches Binden zur Laufzeit                                   │
+  └────────────────────────────────────────────────────────────────────────┘
+
+  ┌────────────────────────────────────────────────────────────────────────┐
+  │  4. ABSTRAKTION (Abstraction)                                          │
+  ├────────────────────────────────────────────────────────────────────────┤
+  │                                                                        │
+  │    Klasse = Bauplan (abstrakte Beschreibung)                          │
+  │    Objekt = konkrete Instanz                                          │
+  │                                                                        │
+  │    Person person = new Person("Max", 30);                             │
+  │           ▲                   ▲                                       │
+  │           │                   │                                       │
+  │      Abstrakt           Konkret                                       │
+  │                                                                        │
+  │  ✓  Komplexität verstecken                                            │
+  │  ✓  Nur relevante Details zeigen                                      │
+  │  ✓  Implementierungsdetails verbergen                                 │
+  └────────────────────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                      ZUGRIFFSMODIFIKATOREN
+═══════════════════════════════════════════════════════════════════════════════
+
+  ┌──────────────┬─────────┬─────────┬────────────┬──────────┐
+  │ Modifikator  │ Klasse  │ Package │ Subklasse  │  Welt    │
+  ├──────────────┼─────────┼─────────┼────────────┼──────────┤
+  │  private     │    ✓    │    ✗    │     ✗      │    ✗     │
+  │  (default)   │    ✓    │    ✓    │     ✗      │    ✗     │
+  │  protected   │    ✓    │    ✓    │     ✓      │    ✗     │
+  │  public      │    ✓    │    ✓    │     ✓      │    ✓     │
+  └──────────────┴─────────┴─────────┴────────────┴──────────┘
+
+  Verwendung in unseren Klassen:
+
+    private String name;        ← Nur in Person-Klasse zugänglich
+    public String getName() ... ← Überall zugänglich
+
+
+═══════════════════════════════════════════════════════════════════════════════
+              METHODENÜBERSCHREIBUNG (Method Overriding)
+═══════════════════════════════════════════════════════════════════════════════
+
+    Person-Klasse:
+    ┌─────────────────────────────────────────────┐
+    │  public void begruessung() {                │
+    │      System.out.println(                    │
+    │          "Hallo, mein Name ist " + name);   │
+    │  }                                          │
+    └─────────────────────────────────────────────┘
+                        │
+                        │ überschreiben
+                        ▼
+    Student-Klasse:
+    ┌─────────────────────────────────────────────┐
+    │  @Override                                  │
+    │  public void begruessung() {                │
+    │      System.out.println(                    │
+    │          "Hallo, ich bin " + getName() +    │
+    │          ", Student/in im Studiengang " +   │
+    │          studiengang);                      │
+    │  }                                          │
+    └─────────────────────────────────────────────┘
+
+    Aufruf:
+        Person p = new Person("Max", 30);
+        p.begruessung();
+        ► Ausgabe: "Hallo, mein Name ist Max"
+
+        Student s = new Student("Tom", 22, "123456");
+        s.begruessung();
+        ► Ausgabe: "Hallo, ich bin Tom, Student/in im Studiengang Informatik"
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    KONSTRUKTOREN-ÜBERSICHT
+═══════════════════════════════════════════════════════════════════════════════
+
+    Person-Konstruktoren:
+
+    ┌─────────────────────────────────────────────────────────┐
+    │  1. Person()                                            │
+    │     ► Erstellt Person mit Standardwerten                │
+    │                                                         │
+    │  2. Person(String name, int alter)                      │
+    │     ► Erstellt Person mit Name und Alter                │
+    │                                                         │
+    │  3. Person(String name, int alter, String adresse)      │
+    │     ► Erstellt Person mit allen Attributen              │
+    └─────────────────────────────────────────────────────────┘
+
+    Student-Konstruktoren:
+
+    ┌─────────────────────────────────────────────────────────┐
+    │  1. Student()                                           │
+    │     ► super() - ruft Person() auf                       │
+    │                                                         │
+    │  2. Student(String name, int alter,                     │
+    │             String matrikelnummer)                      │
+    │     ► super(name, alter) - ruft Person-Konstruktor auf  │
+    │                                                         │
+    │  3. Student(String name, int alter, String adresse,     │
+    │             String matrikelnummer, String studiengang)  │
+    │     ► super(name, alter, adresse)                       │
+    └─────────────────────────────────────────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                        WICHTIGE SCHLÜSSELWÖRTER
+═══════════════════════════════════════════════════════════════════════════════
+
+  this        ► Referenz auf das aktuelle Objekt
+              ► this.name = name;
+
+  super       ► Referenz auf die Elternklasse
+              ► super.begruessung();
+              ► super(name, alter);
+
+  extends     ► Vererbung deklarieren
+              ► class Student extends Person
+
+  @Override   ► Annotation für Methodenüberschreibung
+              ► Compiler-Prüfung
+
+  new         ► Objekt erstellen
+              ► Person p = new Person();
+
+
+═══════════════════════════════════════════════════════════════════════════════

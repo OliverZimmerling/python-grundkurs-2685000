@@ -1,0 +1,107 @@
+@startuml OOP Klassendiagramm
+
+!theme plain
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor LightBlue
+    BorderColor DarkBlue
+    ArrowColor DarkBlue
+}
+
+title OOP-Konzepte: Person und Student\nKlassendiagramm
+
+' Person Klasse
+class Person {
+    ' Attribute
+    - name : String
+    - alter : int
+    - adresse : String
+
+    ' Konstruktoren
+    + Person()
+    + Person(name : String, alter : int)
+    + Person(name : String, alter : int, adresse : String)
+
+    ' Getter
+    + getName() : String
+    + getAlter() : int
+    + getAdresse() : String
+
+    ' Setter
+    + setName(name : String) : void
+    + setAlter(alter : int) : void
+    + setAdresse(adresse : String) : void
+
+    ' Methoden
+    + begruessung() : void
+    + geburtstag() : void
+    + zeigeInfo() : void
+    + toString() : String
+}
+
+' Student Klasse
+class Student {
+    ' Zusätzliche Attribute
+    - matrikelnummer : String
+    - studiengang : String
+    - durchschnittsnote : double
+
+    ' Konstruktoren
+    + Student()
+    + Student(name : String, alter : int, matrikelnummer : String)
+    + Student(name : String, alter : int, adresse : String, matrikelnummer : String, studiengang : String)
+
+    ' Getter
+    + getMatrikelnummer() : String
+    + getStudiengang() : String
+    + getDurchschnittsnote() : double
+    + getSemester() : int
+
+    ' Setter
+    + setMatrikelnummer(matrikelnummer : String) : void
+    + setStudiengang(studiengang : String) : void
+    + setDurchschnittsnote(note : double) : void
+
+    ' Methoden
+    + lernen() : void
+    + begruessung() : void
+    + zeigeInfo() : void
+    + toString() : String
+}
+
+' Vererbungsbeziehung
+Person <|-- Student : erbt von
+
+note right of Person
+    **Basisklasse**
+
+    Enthält grundlegende
+    Eigenschaften einer Person
+
+    **Konzepte:**
+    • Kapselung (private)
+    • Getter/Setter
+    • Konstruktoren
+end note
+
+note right of Student
+    **Abgeleitete Klasse**
+
+    Erbt alle Eigenschaften
+    von Person und fügt
+    spezifische Attribute hinzu
+
+    **Konzepte:**
+    • Vererbung (extends)
+    • Methodenüberschreibung
+    • super-Keyword
+end note
+
+note bottom of Person
+    **Zugriffsmodifikatoren:**
+    - = private (nur in der Klasse)
+    + = public (überall)
+    # = protected (in Klasse + Subklassen)
+end note
+
+@enduml

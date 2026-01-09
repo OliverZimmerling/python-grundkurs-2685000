@@ -1,0 +1,68 @@
+@startuml OOP Objektdiagramm
+
+!theme plain
+skinparam object {
+    BackgroundColor LightYellow
+    BorderColor DarkOrange
+}
+
+title OOP-Konzepte: Objekt-Instanzen\nObjektdiagramm
+
+' Objekt-Instanzen
+object "person2 : Person" as person2 {
+    name = "Max Mustermann"
+    alter = 30
+    adresse = "Keine Angabe"
+}
+
+object "person3 : Person" as person3 {
+    name = "Anna Schmidt"
+    alter = 25
+    adresse = "Musterstraße 123, 12345 Berlin"
+}
+
+object "student2 : Student" as student2 {
+    name = "Tom Weber"
+    alter = 22
+    adresse = "Keine Angabe"
+    matrikelnummer = "123456"
+    studiengang = "Informatik"
+    durchschnittsnote = 1.8
+}
+
+object "student3 : Student" as student3 {
+    name = "Sarah Klein"
+    alter = 20
+    adresse = "Universitätsallee 7, 10115 Berlin"
+    matrikelnummer = "789012"
+    studiengang = "Wirtschaftsinformatik"
+    durchschnittsnote = 2.1
+}
+
+note right of person2
+    **Person-Instanz**
+
+    Objekt der Klasse Person
+    mit konkreten Werten
+end note
+
+note right of student2
+    **Student-Instanz**
+
+    Objekt der Klasse Student
+    (erbt von Person)
+
+    Hat zusätzliche Attribute:
+    • matrikelnummer
+    • studiengang
+    • durchschnittsnote
+end note
+
+note bottom
+    **Objektdiagramm zeigt:**
+    Konkrete Instanzen (Objekte) von Klassen
+    mit ihren tatsächlichen Attributwerten
+    zu einem bestimmten Zeitpunkt
+end note
+
+@enduml
