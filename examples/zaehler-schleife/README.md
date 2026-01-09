@@ -43,8 +43,18 @@ Erstellen Sie eine Kontrollstruktur, die einen Countdown beginnend mit der Zahl 
 
 ## Dateien
 
+### Code
 - **Countdown.java**: Die Java-Implementierung des Countdown-Programms
-- **Countdown-Aktivitaetsdiagramm.md**: Das Aktivitätsdiagramm, das den Ablauf der Schleife visualisiert
+
+### Grafische Darstellungen
+- **DIAGRAMME.md**: 📊 **Übersicht über alle verfügbaren Diagrammformate** (Start hier!)
+- **Countdown-Aktivitaetsdiagramm.md**: Einfaches Mermaid-Aktivitätsdiagramm
+- **countdown-mermaid-detailed.md**: 5 verschiedene Mermaid-Diagrammvarianten
+- **countdown-activity.puml**: PlantUML-Diagramm (UML-Standard)
+- **countdown-ascii-diagram.txt**: Textbasiertes ASCII-Art Diagramm
+
+> 💡 **Tipp:** Öffnen Sie zuerst die Datei `DIAGRAMME.md` für eine vollständige Übersicht
+> aller grafischen Darstellungen und deren Verwendungszwecke!
 
 ## Programm ausführen
 

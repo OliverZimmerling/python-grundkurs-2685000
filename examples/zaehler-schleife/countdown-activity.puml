@@ -1,0 +1,31 @@
+@startuml Countdown Aktivitätsdiagramm
+!theme plain
+skinparam ActivityBackgroundColor LightBlue
+skinparam ActivityBorderColor DarkBlue
+skinparam ActivityStartColor LightGreen
+skinparam ActivityEndColor Pink
+skinparam ActivityDiamondBackgroundColor LightYellow
+skinparam ActivityDiamondBorderColor Orange
+
+title Countdown Zählerschleife - Aktivitätsdiagramm
+
+start
+
+:Initialisiere i = 10;
+
+while (i >= 0?) is (Ja)
+  :Gib i auf Console aus;
+  note right
+    System.out.println(i);
+  end note
+
+  :Dekrementiere i;
+  note right
+    i = i - 1
+    (oder i--)
+  end note
+endwhile (Nein)
+
+stop
+
+@enduml
