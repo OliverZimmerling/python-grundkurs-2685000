@@ -1,0 +1,34 @@
+@startuml PIN_Abfrage_DoWhile
+!theme plain
+skinparam defaultTextAlignment center
+skinparam activityDiamondBorderColor black
+skinparam activityDiamondBackgroundColor white
+
+start
+
+:Eingabe: PIN festlegen
+"Geben Sie einen PIN ein";
+
+:PIN speichern;
+
+repeat
+
+:Eingabe: PIN abfragen
+"Geben Sie Ihren PIN ein";
+
+if (eingabe != pin?) then (wahr)
+  :Ausgabe:
+  "Falscher PIN!
+  Bitte versuchen Sie es erneut";
+else (falsch)
+  :Ausgabe:
+  "Richtiger PIN!
+  Zugang gewährt";
+endif
+
+repeat while (eingabe != pin?) is (wahr)
+->falsch;
+
+stop
+
+@enduml
